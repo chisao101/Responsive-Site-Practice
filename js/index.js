@@ -10,4 +10,7 @@ mainWrap.style.width = '90vw'; // width 90% of viewport width
 mainWrap.style.margin = '0 auto'; // center on page
 mainWrap.style.padding = '2rem'; // add padding
 
-
+// create and style header
+const header = document.createElement('header');
+mainWrap.appendChild(header);
+header.style.display = 'flex';
