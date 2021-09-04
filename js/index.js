@@ -35,7 +35,7 @@ logoSecondWord.style.fontWeight = '200';
 // create and style nav menu
 const navMenu = document.createElement('nav');
 header.appendChild(navMenu);
-const navLink =
+const navLink = document.createElement('a');
 
 
 
