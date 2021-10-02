@@ -8,6 +8,7 @@ body.appendChild(mainWrap); // append to body
 mainWrap.style.backgroundColor = '#fff'; // background color white
 mainWrap.style.width = '90vw'; // width 90% of viewport width
 mainWrap.style.margin = '0 auto'; // center on page
+
 mainWrap.style.padding = '1rem'; // add padding
 
 // create and style header
@@ -33,6 +34,20 @@ logo.appendChild(logoFirstWord); // append first word to h1
 logo.appendChild(logoSecondWord); // append second word to h1
 logoFirstWord.style.fontWeight = '700'; // set font weight for first word
 logoSecondWord.style.fontWeight = '200'; // set font weight for second word
+
+// hamburger menu
+const burger = document.createElement('i');
+burger.classList.add('fas');
+burger.classList.add('fa-bars');
+burger.style.color = '#000';
+burger.style.cursor = 'pointer';
+burger.style.display = 'flex';
+burger.style.alignItems = 'center';
+burger.style.fontSize = '28px';
+header.appendChild(burger);
+
+
+
 
 // create and style nav menu
 const navMenu = document.createElement('nav'); // create nav element
@@ -71,7 +86,7 @@ navData.forEach((item) => { // loop through navData array
         e.target.style.border = 'none';
     })
 
-})
+});
 
 // create and style register button and div
 const registerBtn = document.createElement('button'); // create button element
@@ -94,3 +109,33 @@ registerBtn.addEventListener('mouseout', (e) => {
     e.target.style.backgroundColor = 'rgba(0, 0, 255, 1)';
 })
 
+// responsive logic
+const deviceWidth = window.innerWidth;
+body.onload = function () {
+
+    console.log(deviceWidth);
+    if (deviceWidth < 850) {
+        if (deviceWidth < 850) {
+            burger.style.display = 'flex';
+            navMenu.style.display = 'none';
+            registerBtn.style.display = 'none';
+        } else {
+            burger.style.display = 'none';
+            navMenu.style.display = 'flex';
+            registerBtn.style.display = 'inline-block';
+        }
+    }
+}
+
+window.addEventListener('resize', function () {
+    // const deviceWidth = window.innerWidth;
+    if (deviceWidth < 850) {
+        burger.style.display = 'flex';
+        navMenu.style.display = 'none';
+        registerBtn.style.display = 'none';
+    } else {
+        burger.style.display = 'none';
+        navMenu.style.display = 'flex';
+        registerBtn.style.display = 'inline-block';
+    }
+})
